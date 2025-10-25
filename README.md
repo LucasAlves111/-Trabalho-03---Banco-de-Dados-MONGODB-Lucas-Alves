@@ -36,7 +36,7 @@ library-api/
 └── server.js                     # Entry point to start server
 ```
 
-## 📝 Explanation of Each Folder/File:
+## Explanation of Each Folder/File:
 
 ### **src/config/**
 - Database connection configuration

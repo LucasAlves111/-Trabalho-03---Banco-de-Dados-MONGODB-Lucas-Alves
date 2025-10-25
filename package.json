@@ -2,7 +2,7 @@
     "scripts": {
         "dev": "nodemon server.js",
         "start": "node server.js",
-        "collections": "node scripts/resetCollections.js"
+        "collections": "node scripts/collections.js"
     },
     "dependencies": {
         "dotenv": "^17.2.3",

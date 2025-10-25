@@ -24,6 +24,20 @@ const createBook = async (request, reply) => {
   }
 };
 
+const getOneBook = async (request, reply) => {
+  try {
+    const { id } = request.params;
+    const book = await Book.findById(id).populate('author');
+    if (!book) {
+      return reply.code(404).send({ error: 'Book not found' });
+    }
+    return reply.code(200).send(book);
+  } catch (error) {
+    return reply.code(500).send({ error: error.message });
+  }
+};
+
+
 const getAllBooks = async (request, reply) => {
   try {
 
@@ -36,5 +50,6 @@ const getAllBooks = async (request, reply) => {
 
 module.exports = {
   createBook,
+  getOneBook, 
   getAllBooks
 };

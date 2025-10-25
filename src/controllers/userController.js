@@ -6,7 +6,7 @@ const createUser = async (request, reply) => {
     await user.save();
     return reply.code(201).send(user);
   } catch (error) {
-    // Handle duplicate name error
+    
     if (error.code === 11000) {
       return reply.code(400).send({ 
         error: 'A user with this name already exists' 

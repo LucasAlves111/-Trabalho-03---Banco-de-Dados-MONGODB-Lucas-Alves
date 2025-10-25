@@ -1,0 +1,125 @@
+
+### Test 
+GET http://localhost:3333/
+
+
+### AUTHORS
+
+
+### Create Author
+POST http://localhost:3333/authors
+Content-Type: application/json
+
+{
+  "name": "J.K. Rowling",
+  "birthDate": "1965-07-31",
+  "sex": "Female",
+  "writingGenre": "Fantasy"
+}
+
+### Get All Authors
+GET http://localhost:3333/authors
+
+
+
+### USERS
+
+
+### Create User
+POST http://localhost:3333/users
+Content-Type: application/json
+
+{
+  "name": "Maria Silva",
+  "birthDate": "1990-05-15",
+  "sex": "Female",
+  "address": "Rua das Flores, 123, Rio de Janeiro, RJ"
+}
+
+### Get All Users
+GET http://localhost:3333/users
+
+
+
+### BOOKS
+
+
+### Create Book
+### NOTE: Substitua AUTHOR_ID pelo ID real da resposta Criar Autor
+POST http://localhost:3333/books
+Content-Type: application/json
+
+{
+  "title": "Harry Potter and the Philosopher's Stone",
+  "synopsis": "A young wizard begins his magical education at Hogwarts",
+  "year": 1997,
+  "author": "AUTHOR_ID_HERE"
+}
+
+### Get All Books
+GET http://localhost:3333/books
+
+
+
+### LOANS
+
+
+### Create Loan
+### NOTE: Substitua USER_ID e BOOK_ID pelos IDs reais
+POST http://localhost:3333/loans
+Content-Type: application/json
+
+{
+  "userId": "USER_ID_HERE",
+  "bookId": "BOOK_ID_HERE"
+}
+
+
+
+### WORKFLOW EXAMPLE
+
+
+### Step 1: Criar um Author
+POST http://localhost:3333/authors
+Content-Type: application/json
+
+{
+  "name": "J.R.R. Tolkien",
+  "birthDate": "1892-01-03",
+  "sex": "Male",
+  "writingGenre": "Fantasy"
+}
+
+### Step 2: Copie o "_id" da resposta e crie um livro
+POST http://localhost:3333/books
+Content-Type: application/json
+
+{
+  "title": "The Lord of the Rings",
+  "synopsis": "Epic fantasy adventure in Middle-earth",
+  "year": 1954,
+  "author": "_idAUTHOR_HERE"
+}
+
+### Step 3: Criar um User
+POST http://localhost:3333/users
+Content-Type: application/json
+
+{
+  "name": "test_user",
+  "birthDate": "2000-01-01",
+  "sex": "Male",
+  "address": "Rua Ipanema, 555, Rio de Janeiro, RJ"
+}
+
+### Step 4: Copie USER_ID e BOOK_ID, crie um Empréstimo
+POST http://localhost:3333/loans
+Content-Type: application/json
+
+{
+  "userId": "_idUSER_HERE",
+  "bookId": "_idBOOK_HERE"
+}
+
+### Step 5: Verifique se o livro não está disponível
+GET http://localhost:3333/books

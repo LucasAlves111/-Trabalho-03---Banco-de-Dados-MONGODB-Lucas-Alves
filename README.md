@@ -2,63 +2,35 @@ library-api/
 │
 ├── src/
 │   ├── config/
-│   │   └── database.js          # MongoDB connection setup
+│   │   └── database.js          # Configuração de conexão com MongoDB
 │   │
 │   ├── models/
-│   │   ├── Author.js             # Author schema
-│   │   ├── User.js               # User schema
-│   │   ├── Book.js               # Book schema
-│   │   └── Loan.js               # Loan schema
+│   │   ├── Author.js             # Schema de Autor
+│   │   ├── User.js               # Schema de Usuário
+│   │   ├── Book.js               # Schema de Livro
+│   │   └── Loan.js               # Schema de Empréstimo
 │   │
 │   ├── routes/
-│   │   ├── authorRoutes.js       # Author endpoints
-│   │   ├── userRoutes.js         # User endpoints
-│   │   ├── bookRoutes.js         # Book endpoints
-│   │   └── loanRoutes.js         # Loan endpoints
+│   │   ├── authorRoutes.js       # Endpoints de autores
+│   │   ├── userRoutes.js         # Endpoints de usuários
+│   │   ├── bookRoutes.js         # Endpoints de livros
+│   │   └── loanRoutes.js         # Endpoints de empréstimos
 │   │
 │   ├── controllers/
-│   │   ├── authorController.js   # Author business logic
-│   │   ├── userController.js     # User business logic
-│   │   ├── bookController.js     # Book business logic
-│   │   └── loanController.js     # Loan business logic
+│   │   ├── authorController.js   # Lógica de negócio dos autores
+│   │   ├── userController.js     # Lógica de negócio dos usuários
+│   │   ├── bookController.js     # Lógica de negócio dos livros
+│   │   └── loanController.js     # Lógica de negócio dos empréstimos
 │   │
-│   └── app.js                    # Express/Fastify app setup
+│   └── app.js                    # Configuração da aplicação Express/Fastify
 │
 ├── scripts/
-│   └── resetCollections.js      # Script to clear collections
+│   └── collections.js            # Script para limpar as coleções
 │
-├── .env                          # Environment variables (don't commit!)
-├── .env.example                  # Example env file (commit this)
-├── .gitignore                    # Files to ignore in git
-├── package.json                  # Dependencies and scripts
-├── README.md                     # Project documentation
-├── routes.http                   # API test scenarios
-└── server.js                     # Entry point to start server
-```
-
-## Explanation of Each Folder/File:
-
-### **src/config/**
-- Database connection configuration
-
-### **src/models/**
-- Mongoose schemas for each collection (Authors, Users, Books, Loans)
-
-### **src/routes/**
-- Define all API endpoints (GET, POST, etc.)
-- Each file handles routes for one resource
-
-### **src/controllers/**
-- Business logic for each operation
-- Controllers handle what happens when a route is called
-
-### **scripts/**
-- Utility scripts like resetting the database
-
-### **Root files:**
-- **server.js**: Starts your application
-- **app.js**: Sets up Express/Fastify with middleware and routes
-- **.env**: Your actual secrets (MongoDB URI, port, etc.)
-- **.env.example**: Template showing what variables are needed
-- **package.json**: Lists dependencies and npm scripts
-
+├── .env                          # Variáveis de ambiente (não commitar!)
+├── .env.example                  # Exemplo de arquivo env (commitar este)
+├── .gitignore                    # Arquivos a serem ignorados no git
+├── package.json                  # Dependências e scripts
+├── README.md                     # Documentação do projeto
+├── routes.http                   # Cenários de teste da API
+└── server.js                     # Ponto de entrada para iniciar o servidor
